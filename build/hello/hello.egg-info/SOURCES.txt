@@ -12,7 +12,8 @@ hello/__init__.py
 hello/listener_ID1.py
 hello/listener_ID2.py
 hello/listener_ID3.py
-hello/talker.py
+hello/talker_ID12.py
+hello/talker_ID23.py
 resource/hello
 test/test_copyright.py
 test/test_flake8.py

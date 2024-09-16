@@ -20,123 +20,140 @@ class MyController(Controller, Node):
         
     # id wo kimeru
     def on_share_press(self):
-        subprocess.run("export ROS_DOMAIN_ID=1 && ros2 run hello talker", shell=True)
+        subprocess.run("export ROS_DOMAIN_ID=2 && ros2 run hello talker", shell=True)
     
     def on_options_press(self):
-        subprocess.run("export ROS_DOMAIN_ID=2 && ros2 run hello talker", shell=True)
-            
-    def on_playstation_button_press(self):
         subprocess.run("export ROS_DOMAIN_ID=3 && ros2 run hello talker", shell=True)
+            
+    # def on_playstation_button_press(self):
+    #     subprocess.run("export ROS_DOMAIN_ID=3 && ros2 run hello talker", shell=True)
         
     # 箱回収の上げる方
     def on_circle_press(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "circle"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    def on_circle_release(self):
+def on_circle_release(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "release"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    def on_triangle_press(self):
+def on_triangle_press(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "triangle"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    def on_triangle_release(self):
+def on_triangle_release(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "release"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    def on_square_press(self):
+def on_square_press(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "square"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    def on_square_release(self):
+def on_square_release(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "release"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    # オムニ緊急停止
-    def on_cross_press(self):
+# オムニ緊急停止
+def on_cross_press(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "cross"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-
-    # 箱回収の下げる方
-    def on_right_arrow_press(self):
+# 箱回収の下げる方
+def on_right_arrow_press(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "right"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
-    
-    def on_right_arrow_release(self):
+
+def on_right_arrow_release(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "release"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    def on_up_arrow_press(self):
+def on_up_arrow_press(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "up"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    def on_up_arrow_release(self):
+def on_up_arrow_release(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "release"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
-        
-    def on_left_arrow_press(self):
+
+def on_left_arrow_press(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "left"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    def on_left_arrow_release(self):
+def on_left_arrow_release(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "release"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    # 回収緊急停止
-    def on_down_arrow_press(self):
+# 回収緊急停止
+def on_down_arrow_press(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "release"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    # ジャンプ機構
-    def on_L1_press(self):
+# ジャンプ機構
+def on_L1_press(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "L1ON"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    def on_L1_release(self):
+def on_L1_release(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "L1OFF"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    def on_R1_press(self):
+def on_R1_press(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "R1ON"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    def on_R1_release(self):
+def on_R1_release(self):
+    for _ in range(3):
         msg = MyString()
         msg.data = "R1OFF"
         self.publisher_.publish(msg)
@@ -144,7 +161,7 @@ class MyController(Controller, Node):
 
     # 三輪オムニの制御
     def on_R3_left(self, value):
-        if -3000 < value < 3000:
+        if -1500 < value < 1500:
             value = 0
         msg = MyString()
         msg.data = f"R3_x: {value}"
@@ -152,7 +169,7 @@ class MyController(Controller, Node):
         self.get_logger().info("Published: R3_x: " + str(value))
 
     def on_R3_right(self, value):
-        if -3000 < value < 3000:
+        if -1500 < value < 1500:
             value = 0
         msg = MyString()
         msg.data = f"R3_x: {value}"
@@ -160,7 +177,7 @@ class MyController(Controller, Node):
         self.get_logger().info("Published: R3_x: " + str(value))
 
     def on_R3_up(self, value):
-        if -3000 < value < 3000:
+        if -1500 < value < 1500:
             value = 0
         msg = MyString()
         msg.data = f"R3_y: {value}"
@@ -168,7 +185,7 @@ class MyController(Controller, Node):
         self.get_logger().info("Published: R3_y: " + str(value))
 
     def on_R3_down(self, value):
-        if -3000 < value < 3000:
+        if -1500 < value < 1500:
             value = 0
         msg = MyString()
         msg.data = f"R3_y: {value}"
@@ -176,7 +193,7 @@ class MyController(Controller, Node):
         self.get_logger().info("Published: R3_y: " + str(value))
 
     def on_L3_left(self, value):
-        if -3000 < value < 3000:
+        if -1500 < value < 1500:
             value = 0
         msg = MyString()
         msg.data = f"L3_x: {value}"
@@ -184,7 +201,7 @@ class MyController(Controller, Node):
         self.get_logger().info("Published: L3_x: " + str(value))
 
     def on_L3_right(self, value):
-        if -3000 < value < 3000:
+        if -1500 < value < 1500:
             value = 0
         msg = MyString()
         msg.data = f"L3_x: {value}"
@@ -192,7 +209,7 @@ class MyController(Controller, Node):
         self.get_logger().info("Published: L3_x: " + str(value))
 
     def on_L3_up(self, value):
-        if -3000 < value < 3000:
+        if -1500 < value < 1500:
             value = 0
         msg = MyString()
         msg.data = f"L3_y: {-value}"
@@ -200,7 +217,7 @@ class MyController(Controller, Node):
         self.get_logger().info("Published: L3_y: " + str(-value))
 
     def on_L3_down(self, value):
-        if -3000 < value < 3000:
+        if -1500 < value < 1500:
             value = 0
         msg = MyString()
         msg.data = f"L3_y: {-value}"
