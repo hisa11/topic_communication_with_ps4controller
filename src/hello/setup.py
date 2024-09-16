@@ -21,8 +21,9 @@ setup(
     entry_points={
         'console_scripts': [
             'talker = hello.talker:main',
-            'listener = hello.listener:main',
+            'listener_robo1 = hello.listener_ID1:main',
+            'listener_robo2-1 = hello.listener_ID2:main',
+            'listener_robo2-2 = hello.listener_ID3:main',
         ]
     },
 )
-
